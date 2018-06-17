@@ -1,7 +1,7 @@
 import Type from './post.actionTypes'
 
-export const initialState = {
-    posts: [
+export const getInitialState = () => {
+    return [
         {
             id:'hello-nextjs',
             t:'Hello Next.js',
@@ -17,10 +17,9 @@ export const initialState = {
             t:'Deploy apps with Zeit',
             c:'We\'re not going to do that...'
         }
-    ],
-    currentPost: 0
-}
-export const reducer = (state = initialState, {type, payload}) => {
+    ]
+} 
+export const reducer = (state = [], {type, payload}) => {
     switch(type) {
         case Type.SET_POST:
             return Object.assign({}, state, {

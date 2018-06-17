@@ -3,9 +3,14 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './rootReducer'
 import * as Post from './posts'
+import * as Show from './shows'
 
-export const initialState = {
-  post: Post.initialState
+export const getInitialState = async () => {
+  const shows = await Show.getInitialState()
+  const posts = Post.getInitialState()
+  return {
+    shows, posts
+  }
 }
 export const configureStore = preloadedState => {
   const store = createStore(

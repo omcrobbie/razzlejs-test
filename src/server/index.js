@@ -1,7 +1,7 @@
 import App from '../common/App';
 import { Provider } from 'react-redux';
 import React from 'react';
-import { initialState, configureStore } from '../common/store/index';
+import { configureStore, getInitialState } from '../common/store/index';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
@@ -14,8 +14,9 @@ const server = express();
 server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
-  .get('/*', (req, res) => {
+  .get('/*', async (req, res) => {
       // Create a new Redux store instance
+      const initialState = await getInitialState()
       const store = configureStore(initialState);
       // Render the component to a string
       const markup = renderToString(

@@ -1,8 +1,10 @@
 import Layout from "../components/MyLayout";
 import { setCurrentPost } from "../../common/store/posts/post.actions";
 import { connect } from 'react-redux'
+import React from 'react'
 
-export const Post = ({post}) => {
+export const Post = ({posts, match}) => {
+    const post = posts[parseInt(match.params.id)]
     return (
         <Layout>
             <h1>{post.t}</h1>
@@ -10,13 +12,9 @@ export const Post = ({post}) => {
         </Layout>
     )
 }
-Post.getInitialProps = async ({reduxStore, query}) => {
-    reduxStore.dispatch(setCurrentPost(query.id))
-    return {}
-}
-const ms2p = ({post}) => {
+const ms2p = ({posts}) => {
     return {
-        post: post.posts[post.currentPost]
+        posts
     }
 }
 export default connect(ms2p)(Post)

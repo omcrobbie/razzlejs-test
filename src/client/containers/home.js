@@ -13,7 +13,7 @@ export class Index extends React.Component {
                     {data.map((post, idx) => {
                         return (
                             <li key={post.id}>
-                                <Link to="/posts">{post.t}</Link>
+                                <Link to={`/posts/${idx}`}>{post.t}</Link>
                             </li>
                         )
                     })}
@@ -22,9 +22,9 @@ export class Index extends React.Component {
         )
     }
 }
-const mapStateToProps = ({post}) => {
+const mapStateToProps = ({posts}) => {
     return {
-        data: post.posts
+        data: posts
     }
 }
 export default connect(mapStateToProps)(Index)

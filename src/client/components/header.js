@@ -1,15 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const linkStyle = {
     marginRight: 15
 }
 const Header = () => (
     <div>
-            <a style={linkStyle}>Home</a>
+            <Link to="/" style={linkStyle}>Home</Link>
         
-            <a style={linkStyle}>About</a>
+            <Link to="/about" style={linkStyle}>About</Link>
         
-            <a style={linkStyle}>Batman!</a>
+            <Link to="/shows" style={linkStyle}>Batman!</Link>
     </div>
 )
 export default Header
