@@ -1,5 +1,4 @@
 import Layout from "../components/MyLayout";
-import { setCurrentPost } from "../../common/store/posts/post.actions";
 import { connect } from 'react-redux'
 import React from 'react'
 

@@ -1,5 +1,4 @@
 import App from '../common/App';
-import { Provider } from 'react-redux';
 import React from 'react';
 import { configureStore, getInitialState } from '../common/store/index';
 import express from 'express';
