@@ -20,6 +20,7 @@
       "space-before-function-paren": "off",
       "eol-last":"off",
       "key-spacing":"off",
-      "keyword-spacing":"off"
+      "keyword-spacing":"off",
+      "no-unused-vars":"warn"
     }
   }

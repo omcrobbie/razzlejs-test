@@ -1,6 +1,8 @@
-import { SET_COUNTER, INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions';
+import { SET_COUNTER, INCREMENT_COUNTER, DECREMENT_COUNTER } from './actionTypes'
 
-const counter = (state = 0, action) => {
+export const initialState = 0
+
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_COUNTER:
       return action.payload;
@@ -12,5 +14,3 @@ const counter = (state = 0, action) => {
       return state;
   }
 };
-
-export default counter;

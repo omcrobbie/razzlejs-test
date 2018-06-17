@@ -1,9 +1,9 @@
-import App from '../common/containers/App';
+import App from '../common/App';
 import { Provider } from 'react-redux';
 import React from 'react';
-import configureStore from '../common/store/configureStore';
+import { initialState, configureStore } from '../common/store/index';
 import express from 'express';
-import { fetchCounter } from '../common/api/counter';
+import { fetchCounter } from './api/counter';
 import qs from 'qs';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
@@ -26,7 +26,6 @@ server
 
       // Create a new Redux store instance
       const store = configureStore(preloadedState);
-
       // Render the component to a string
       const markup = renderToString(
         <Provider store={store}>
