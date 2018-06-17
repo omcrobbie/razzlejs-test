@@ -1,14 +1,13 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import Counter from '../client/components/Counter';
-import * as CounterActions from '../common/store/counter/actions';
+import Home from '../client/containers/home'
+import { Switch, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import React from 'react'
 
-const mapStateToProps = state => ({
-  counter: state.counter
-});
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(CounterActions, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+const App = ({store}) => (
+  <Provider store={store}>
+    <Switch>
+      <Route exact path="/" component={Home} />
+    </Switch>
+  </Provider>
+)
+export default App

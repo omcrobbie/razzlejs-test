@@ -2,7 +2,11 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './rootReducer'
+import * as Post from './posts'
 
+export const initialState = {
+  post: Post.initialState
+}
 export const configureStore = preloadedState => {
   const store = createStore(
     rootReducer,
